@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Cherry
   - Traps
+  - DeathZone
   layers:
   - Default
   - TransparentFX
