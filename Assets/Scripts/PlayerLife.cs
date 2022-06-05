@@ -19,7 +19,7 @@ public class PlayerLife : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        scores.text = string.Format("Cherries: {0}", scoreManager.score);
+        scores.text = string.Format("Score: {0}", scoreManager.score);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
