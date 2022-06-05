@@ -36,6 +36,7 @@ public class PlayerLife : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("DeathZone"))
         {
+            dieSoundEffect.Play();
             Die();
         }
     }

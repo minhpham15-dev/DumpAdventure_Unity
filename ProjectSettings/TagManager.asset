@@ -7,6 +7,8 @@ TagManager:
   - Cherry
   - Traps
   - DeathZone
+  - Apple
+  - Banana
   layers:
   - Default
   - TransparentFX
