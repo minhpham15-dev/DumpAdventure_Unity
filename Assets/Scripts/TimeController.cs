@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,15 +13,15 @@ public class TimeController : MonoBehaviour
     private string secondString = "";
     private string minString = "";
 
-    private float totalTime = 0;
-
     [SerializeField] private Text time;
+
+    private TimeManager timeManager = TimeManager.Instance;
 
     private void Update()
     {
-        totalTime += Time.deltaTime;
-        min = Mathf.RoundToInt(totalTime / 60);
-        second = Mathf.RoundToInt(totalTime % 60);
+        timeManager.time += Time.deltaTime;
+        min = Mathf.RoundToInt(timeManager.time / 60);
+        second = Mathf.RoundToInt(timeManager.time % 60);
 
         minString = min < 10 ? String.Format("0{0}", min) : min.ToString();
         secondString = second < 10 ? String.Format("0{0}", second) : second.ToString();

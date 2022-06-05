@@ -14,12 +14,14 @@ public class PlayerLife : MonoBehaviour
     [SerializeField] private Text scores;
 
     private ScoreManager scoreManager = ScoreManager.Instance;
+    private TimeManager timeManager = TimeManager.Instance;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         scores.text = string.Format("Score: {0}", scoreManager.score);
+        timeManager.time = 0;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
