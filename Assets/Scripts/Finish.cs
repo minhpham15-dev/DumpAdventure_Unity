@@ -1,3 +1,4 @@
+using Assets.Scripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,9 @@ public class Finish : MonoBehaviour
     private AudioSource finishSound;
 
     private bool lvlComplete = false;
+
+    private ScoreManager scoreManager = ScoreManager.Instance;
+
     private void Start()
     {
         finishSound = GetComponent<AudioSource>();
@@ -24,6 +28,7 @@ public class Finish : MonoBehaviour
     }
     private void CompleteLevel()
     {
+        scoreManager.oldScore = scoreManager.score;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

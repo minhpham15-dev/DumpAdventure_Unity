@@ -10,6 +10,9 @@ namespace Assets.Scripts
     {
         private static ScoreManager instance;
 
+        public int score { get; set; }
+        public int oldScore { get; set; }
+
         public static ScoreManager Instance { 
             get { 
                 if (instance == null)
