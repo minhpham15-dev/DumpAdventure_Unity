@@ -18,30 +18,29 @@ public class ItemCollection : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Cherry"))
-        {
+        bool isCollided = false;
 
-            collectSoundEffect.Play();
-            Destroy(collision.gameObject);
-            scoreManager.score += cherriesScore;
-        }
-        
-        if (collision.gameObject.CompareTag("Apple"))
+        switch (collision.gameObject.tag)
         {
-
-            collectSoundEffect.Play();
-            Destroy(collision.gameObject);
-            scoreManager.score += appleScore;
-        }
-        
-        if (collision.gameObject.CompareTag("Banana"))
-        {
-
-            collectSoundEffect.Play();
-            Destroy(collision.gameObject);
-            scoreManager.score += bananaScore;
+            case "Cherry":
+                isCollided = true;
+                scoreManager.score += cherriesScore;
+                break;
+            case "Apple":
+                isCollided = true;
+                scoreManager.score += appleScore;
+                break;
+            case "Banana":
+                isCollided = true;
+                scoreManager.score += bananaScore;
+                break;
         }
 
-        scores.text = string.Format("Score: {0}", scoreManager.score);
+        if (isCollided)
+        {
+            collectSoundEffect.Play();
+            Destroy(collision.gameObject);
+            scores.text = string.Format("Score: {0}", scoreManager.score);
+        }
     }
 }

@@ -7,11 +7,11 @@ public class EndMenu : MonoBehaviour
 {
     public void Quit()
     {
-        Application.Quit();
+        SceneManager.LoadScene("Start Menu");
     }
 
     public void PlayAgain()
     {
-        SceneManager.LoadScene("Start Menu");
+        SceneManager.LoadScene("Level 1");
     }
 }
